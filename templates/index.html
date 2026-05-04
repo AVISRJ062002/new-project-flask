@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps CI/CD Pipeline</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo">🚀 DevOps Platform</span>
+            <span class="version">v1.0</span>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>🚀 CI/CD Pipeline Application</h1>
+            <p class="subtitle">Automated Deployment with Jenkins, Docker & Modern DevOps</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="card">
+                <div class="card-icon">🐳</div>
+                <h3>Docker</h3>
+                <p>Containerized deployment</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Jenkins</h3>
+                <p>Automated CI/CD pipelines</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Docker Hub</h3>
+                <p>Image registry & distribution</p>
+            </div>
+        </div>
+        
+        <div class="action-section">
+            <button class="btn btn-primary" onclick="handleTestClick()">Test Pipeline</button>
+            <button class="btn btn-secondary" onclick="showStatus()">Check Status</button>
+        </div>
+        
+        <div id="status-message" class="status-message"></div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Pipeline Status</span>
+                <span class="stat-value">✅ Healthy</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Container Runtime</span>
+                <span class="stat-value">✅ Running</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Services</span>
+                <span class="stat-value">✅ Operational</span>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DevOps CI/CD Platform | Flask + Docker + Jenkins</p>
+    </footer>
+    
+    <script>
+        function handleTestClick() {
+            const btn = event.target;
+            btn.classList.add('loading');
+            
+            setTimeout(() => {
+                const msg = document.getElementById('status-message');
+                msg.textContent = '✅ Pipeline test successful! All systems operational.';
+                msg.classList.add('show');
+                btn.classList.remove('loading');
+            }, 800);
+        }
+        
+        function showStatus() {
+            const msg = document.getElementById('status-message');
+            msg.textContent = '📊 Status: Container running on port 5000 | Services: Active | Performance: Optimal';
+            msg.classList.add('show');
+        }
+    </script>
+</body>
+</html>

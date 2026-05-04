@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  cicd-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cicd-app-container
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+    volumes:
+      - ./:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - cicd-network
+
+networks:
+  cicd-network:
+    driver: bridge
