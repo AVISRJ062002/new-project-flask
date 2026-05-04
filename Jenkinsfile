@@ -5,7 +5,7 @@ pipeline {
         DOCKER_REGISTRY = "docker.io"
         IMAGE_NAME = credentials('docker_username')
         DOCKER_CREDENTIALS = credentials('docker_credentials')
-        GITHUB_REPO = credentials('github_repo_url')
+GITHUB_REPO = 'https://github.com/AVISRJ062002/new-project-flask.git'
         CONTAINER_NAME = "cicd-app-container"
         CONTAINER_PORT = "5000"
         HOST_PORT = "5000"
@@ -192,7 +192,7 @@ pipeline {
         always {
             script {
                 echo "🔧 Cleaning up workspace..."
-                cleanWs()
+sh 'cleanWs()'
             }
         }
         success {
