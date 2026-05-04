@@ -192,7 +192,7 @@ GITHUB_REPO = 'https://github.com/AVISRJ062002/new-project-flask.git'
         always {
             script {
                 echo "🔧 Cleaning up workspace..."
-sh 'cleanWs()'
+// cleanWs()  // Disabled for container compatibility
             }
         }
         success {
