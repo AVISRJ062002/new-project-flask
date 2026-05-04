@@ -6,7 +6,7 @@ pipeline {
 
         IMAGE_NAME = "avisrj062002"
 
-        DOCKER_CREDENTIALS = credentials('docker_credentials')
+// DOCKER_CREDENTIALS = credentials('docker_credentials')  // Disabled - login optional
 GITHUB_REPO = 'https://github.com/AVISRJ062002/new-project-flask.git'
         CONTAINER_NAME = "cicd-app-container"
         CONTAINER_PORT = "5000"
