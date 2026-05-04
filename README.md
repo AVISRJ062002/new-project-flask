@@ -4,7 +4,7 @@ A **production-ready** Flask application with complete CI/CD pipeline using Dock
 
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
-![Flask](https://img.shields.io/badge/Flask-2.3.2-lightblue) ![Webhook](https://img.shields.io/badge/Webhook-Enabled-brightgreen)
+![Flask](https://img.shields.io/badge/Flask-2.3.2-lightblue) ![Webhook](https://img.shields.io/badge/Webhook-Trigger%20Configured-yellowgreen)
 ![Docker](https://img.shields.io/badge/Docker-Latest-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -145,7 +145,7 @@ app/
 - **Restart Policy:** Always
 
 ### Jenkinsfile Stages
-1. Clone GitHub Repository
+1. Checkout Source
 2. Build Docker Image
 3. Login to Docker Hub
 4. Push Docker Image
@@ -246,6 +246,7 @@ Visit: `https://hub.docker.com/r/YOUR_USERNAME/cicd-app`
 - Docker installed on Jenkins agent
 - Pipeline plugin installed
 - Git plugin installed
+- GitHub plugin installed for `githubPush()` webhook triggers
 
 ### Create Credentials
 
@@ -300,12 +301,17 @@ git push -u origin main
 
 ### Enable Webhooks
 
-1. GitHub Repository → Settings → Webhooks
-2. Add Webhook:
-   - Payload URL: `http://JENKINS_URL/github-webhook/`
+The Jenkins pipeline now declares `githubPush()` in `app/Jenkinsfile`, but GitHub can only trigger it if Jenkins is reachable from the public internet. `localhost` will not work for GitHub deliveries.
+
+1. Expose Jenkins at a public URL, for example `https://jenkins.example.com`
+2. Run the pipeline once manually after updating the job so Jenkins stores the trigger from the Jenkinsfile
+3. GitHub Repository → Settings → Webhooks
+4. Add Webhook:
+   - Payload URL: `https://jenkins.example.com/github-webhook/`
    - Content type: application/json
-   - Events: Push events
+   - Events: Just the push event
    - Active: ✓
+5. Push a new commit and confirm Jenkins starts automatically
 
 ---
 
