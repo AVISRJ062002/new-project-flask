@@ -4,7 +4,7 @@ A **production-ready** Flask application with complete CI/CD pipeline using Dock
 
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
-![Flask](https://img.shields.io/badge/Flask-2.3.2-lightblue)
+![Flask](https://img.shields.io/badge/Flask-2.3.2-lightblue) ![Webhook](https://img.shields.io/badge/Webhook-Enabled-brightgreen)
 ![Docker](https://img.shields.io/badge/Docker-Latest-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
