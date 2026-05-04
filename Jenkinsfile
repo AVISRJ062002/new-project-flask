@@ -3,7 +3,9 @@ pipeline {
     
     environment {
         DOCKER_REGISTRY = "docker.io"
-        IMAGE_NAME = credentials('docker_username')
+
+        IMAGE_NAME = "avisrj062002"
+
         DOCKER_CREDENTIALS = credentials('docker_credentials')
 GITHUB_REPO = 'https://github.com/AVISRJ062002/new-project-flask.git'
         CONTAINER_NAME = "cicd-app-container"
