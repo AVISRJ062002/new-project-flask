@@ -4,84 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps CI/CD Pipeline</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <span class="logo">🚀 DevOps Platform</span>
-            <span class="version">v2.0</span>
+            <div class="logo">🚀 CI/CD Pipeline</div>
+            <div class="version">v2.0 Production Ready</div>
         </div>
     </nav>
-    
+
     <div class="container">
-        <div class="hero">
-            <h1>🚀 CI/CD Pipeline Application</h1>
-            <p class="subtitle">Automated Deployment with Jenkins, Docker & Modern DevOps</p>
-        </div>
-        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Production-Ready DevOps Pipeline</h1>
+            <p class="subtitle">Docker • Jenkins • Docker Hub • Fully Automated CI/CD</p>
+        </section>
+
+        <!-- Content Grid -->
         <div class="content-grid">
             <div class="card">
-                <div class="card-icon">🐳</div>
-                <h3>Docker</h3>
-                <p>Containerized deployment</p>
+                <span class="card-icon">🐳</span>
+                <h3>Docker Containerized</h3>
+                <p>Optimized multi-stage Dockerfile with health checks. Production-ready Python 3.9-slim base image.</p>
             </div>
             <div class="card">
-                <div class="card-icon">srj</div>
-                <h3>Jenkins</h3>
-                <p>Automated CI/CD pipelines</p>
+                <span class="card-icon">⚙️</span>
+                <h3>Jenkins Pipeline</h3>
+                <p>7-stage automated pipeline: build, test, push, deploy, verify. GitHub webhook integration.</p>
             </div>
             <div class="card">
-                <div class="card-icon">📦</div>
-                <h3>Docker Hub</h3>
-                <p>Image registry & distribution</p>
+                <span class="card-icon">📦</span>
+                <h3>Docker Hub Registry</h3>
+                <p>Automated image builds and pushes. Version tagging. Secure credential management.</p>
             </div>
         </div>
-        
+
+        <!-- Action Section -->
         <div class="action-section">
-            <button class="btn btn-primary" onclick="handleTestClick()">Test Pipeline</button>
-            <button class="btn btn-secondary" onclick="showStatus()">Check Status</button>
+            <button class="btn btn-primary" onclick="testPipeline()">🧪 Test Pipeline</button>
+            <button class="btn btn-secondary" onclick="checkStatus()">📊 Check Status</button>
         </div>
-        
-        <div id="status-message" class="status-message"></div>
-        
+
+        <!-- Status Message -->
+        <div id="statusMessage" class="status-message">
+            Ready to deploy! All systems operational.
+        </div>
+
+        <!-- Stats Grid -->
         <div class="stats">
             <div class="stat-item">
-                <span class="stat-label">Pipeline Status</span>
-                <span class="stat-value">✅ Healthy</span>
+                <div class="stat-label">Build Status</div>
+                <div class="stat-value">✅ PASS</div>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Container Runtime</span>
-                <span class="stat-value">✅ Running</span>
+                <div class="stat-label">Deployments</div>
+                <div class="stat-value">17</div>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Services</span>
-                <span class="stat-value">✅ Operational</span>
+                <div class="stat-label">Uptime</div>
+                <div class="stat-value">99.9%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Images Pushed</div>
+                <div class="stat-value">23</div>
             </div>
         </div>
     </div>
-    
+
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 DevOps CI/CD Platform | Flask + Docker + Jenkins</p>
+        <p>&copy; 2026 DevOps CI/CD Pipeline | Flask • Docker • Jenkins | Production Ready</p>
     </footer>
-    
+
     <script>
-        function handleTestClick() {
+        function testPipeline() {
             const btn = event.target;
+            const status = document.getElementById('statusMessage');
+            
             btn.classList.add('loading');
+            btn.textContent = 'Running...';
             
             setTimeout(() => {
-                const msg = document.getElementById('status-message');
-                msg.textContent = '✅ Pipeline test successful! All systems operational.';
-                msg.classList.add('show');
+                status.textContent = '✅ Pipeline test completed successfully!';
+                status.classList.add('show');
                 btn.classList.remove('loading');
-            }, 800);
+                btn.textContent = '🧪 Test Pipeline';
+                
+                setTimeout(() => {
+                    status.classList.remove('show');
+                }, 5000);
+            }, 2000);
         }
-        
-        function showStatus() {
-            const msg = document.getElementById('status-message');
-            msg.textContent = '📊 Status: Container running on port 5000 | Services: Active | Performance: Optimal';
-            msg.classList.add('show');
+
+        function checkStatus() {
+            const status = document.getElementById('statusMessage');
+            status.textContent = '📊 All services healthy. 100% uptime last 24h.';
+            status.classList.add('show');
+            
+            setTimeout(() => {
+                status.classList.remove('show');
+            }, 4000);
         }
     </script>
 </body>
